@@ -1,0 +1,54 @@
+print('Thank you for choosing Sunset Inn Hotels!\nWe are honored to have you.\nPlease enter the information as folllows.\n')
+
+import cuscheck
+#import verification of customer info validation.
+name = input('Please enter your first name: ')
+last = input('Please enter your last name: ')
+age = input('Please enter you age: ')
+phone = input('Please enter your phone number: ')
+limit_age = 21
+customer1 = [name,last,age,phone]
+print(customer1)
+
+
+import rescheck
+#import verification of reservation date.
+print('\nDate of reservation: Please enter the date of the reservation in the "MM-DD-YYYY" format.')
+year = input('Year: ')
+month = input('Month: ')
+day = input('Day: ')
+print('Set the time by adding PM and AM')
+time = input('Time: ')
+
+#Date of reservation to be displayed
+date1 = [month,day,year,time]
+print('\nReservation date on: ',date1) 
+
+
+import A   #import A which contains for loop
+
+ro = {1: ('Single', 74.99) , 2: ('Studio', 104.99), 3: ('Executive', 199.99)}
+print('These are the rooms we currently offer at our locations: ')
+
+for k, v in ro.items():
+    print('{}) {}: $ {}'.format(k, v[0], v[1]))
+    
+customer_list = []
+
+add_room = "Y"
+while add_room == 'Y':
+    choice = int(input('\nWhat is your selection in room types?: '))
+    
+    if choice in ro.keys():
+        customer_list.append((ro[choice][0], ro[choice][1]))
+    else:
+        print('Invalid Choice')
+    
+    add_room = input('Add Another Room (Y for yes and N for no): ').upper()
+
+#display reservation confirmation info.
+print('\nThank you for reserving with Sunset Inn Hotels, below is your reservation information:')
+print(customer1)
+print(date1)
+A.total(customer_list)
+
